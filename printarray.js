@@ -23,4 +23,3 @@ let altArr = pos
   });
 
 console.table(altArr);
-//scsucha
