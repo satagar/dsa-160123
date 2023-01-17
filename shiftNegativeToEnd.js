@@ -17,3 +17,4 @@ function sort(array) {
     return array;
 }
 console.log(sort([-5, 3, -4, 88, -9, -10, 21, 5, 6]))
+console.log(sort([6, 5, 21, -10, -9, 88, -4, 3, -5]))
