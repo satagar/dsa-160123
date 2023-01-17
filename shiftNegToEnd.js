@@ -16,4 +16,3 @@ function shiftNegatives(arr) {
   let Array = [-5,3,-4,88,-9,-10,21,5,6];
   console.log(shiftNegatives(Array));
 
-  //shiftneg
