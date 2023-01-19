@@ -7,3 +7,4 @@ function printarrey(arr)
 }
 let arr= [1,2,3,4];
 printarrey(arr);
+// this is first arrey prog
