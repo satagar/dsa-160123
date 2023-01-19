@@ -23,7 +23,6 @@ for (var i=0;i<26;i++){
     if(arr[i] !== 0){
         return false;
     }
-
 }
 return true;
 }
