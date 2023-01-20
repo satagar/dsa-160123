@@ -4,10 +4,7 @@ function isAnagram(str1,str2){
 
     if(str1.length!==str2.length) return false;
 
-    let countArr= [];
-    for(let i=0; i<=25; i++){
-        countArr.push(0);
-    }
+    const countArr=new Array(26).fill(0);
 
     for(let i=0; i<str1.length; i++){
         countArr[str1.charCodeAt(i)-97]++
