@@ -8,3 +8,5 @@ function sum(arr, n) {
 let arr = [10, 7, 8, 9, 7, 4, 5, 8, 6, 45];
 let n = arr.length;
 console.log(sum(arr, n));
+
+
