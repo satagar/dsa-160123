@@ -9,4 +9,4 @@ function LinearSearch(arr,n,key) {
    let arr = [2,1,4,6,3,8,5]
    let n = arr.length
    
-   console.log(LinearSearch(arr,n,3))
+   console.log(LinearSearch(arr,n,8))
