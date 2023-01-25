@@ -1,15 +1,15 @@
-var a=[1,2,3,4,5]
-var f=3
+var a=[1,2,3,4,5,2]
+
 
 function linearsearch(arr,s)
-{
+{var op=[]
     for(let i=0;i<a.length;i++)
     {
         if(arr[i]==s)
-        {
-            return true
+        {op.push(arr[i])
+           
         }
     }
-    return false
+    return op
 }
 console.log(linearsearch(a,2))
