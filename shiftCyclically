@@ -1,0 +1,15 @@
+let arr=[3, 88, 21, 5, 6]
+function swap(arr,i,j){
+    let temp=arr[i]
+    arr[i]=arr[j]
+    arr[j]=temp
+}
+function shiftCyclically(arr){
+    let i=0
+    let j=arr.length-1
+    for(i=0;i<arr.length;i++){
+        if(i==j)return arr
+        swap(arr,i,j)
+    }
+}
+ console.log(shiftCyclically(arr))
