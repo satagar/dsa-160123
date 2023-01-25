@@ -11,4 +11,4 @@ let inputArray = [1, 2, 4, 5, 8, 4];
 let item1 = 3;
 let item2 = 4;
 linearSearch(inputArray, item1);
-//linearSearch(inputArray, item2);
+linearSearch(inputArray, item2);
