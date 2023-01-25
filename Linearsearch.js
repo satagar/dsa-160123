@@ -6,7 +6,7 @@ function linearsearch(arr,s)
     for(let i=0;i<a.length;i++)
     {
         if(arr[i]==s)
-        {op.push(arr[i])
+        {op.push(i)
            
         }
     }
