@@ -52,9 +52,6 @@ let n=arr.length
         }
         
     }
-
-
-
 return arr
 }
 
