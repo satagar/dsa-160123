@@ -1,22 +1,21 @@
-(function() {
-  let E = 42;
-  let arr = [12, 47, 85, 96, 7, 4, 42]
-  
-  let found = linearSearch(arr, E);
+let arr=[23,45,87,89,98,80];
+let key=87;
 
-  if (found != -1) {
-    console.log(`Element is found ${E}`)
-  } else {
-    console.log(`Element ins not found `)
-  }
-})();
-
-
-function linearSearch(arr, key) {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === key) {
-      return key;
+function linearSearch(arr,key){
+    let flag=false;
+    let ind;
+    for(let i=0;i<arr.length;i++){
+        if(arr[i]===key){
+            flag=true;
+            ind=i;
+            break
+        }
     }
-  }
-  return -1;
+    if(flag){
+        console.log(` found ${key} at index is ${ind}`);
+    }else{
+        console.log("not found")
+    }
 }
+
+linearSearch(arr,key);
