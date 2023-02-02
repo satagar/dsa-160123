@@ -6,8 +6,7 @@ var key = 9
 
 function subset(arr, key, mid) {
   debugger
-  var i = 2
-  while (i == 2) {
+ 
     
 
     if (arr[mid] >= key) {
@@ -53,5 +52,5 @@ function subset(arr, key, mid) {
   }
   return -1
   }
-}
+
   subset(arr, key, mid)
