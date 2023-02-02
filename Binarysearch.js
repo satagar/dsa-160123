@@ -21,7 +21,7 @@ function subset(arr, key, mid) {
             }
             else
             {
-                return  
+                return 
             }
           
           endpt.join()
