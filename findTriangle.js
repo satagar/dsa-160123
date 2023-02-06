@@ -1,3 +1,4 @@
+// Time complexity :-O(n*n*logn)
 function countGreater(arr, n, k) {
     let r = n - 1;
     let l = 0;
