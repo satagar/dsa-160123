@@ -1,3 +1,4 @@
+// Time Complexity O(N*N!)
 function isSquareable(a, b) {
     let root = parseInt(Math.sqrt(a + b));
     return root * root == a + b;
