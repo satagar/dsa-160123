@@ -9,7 +9,7 @@ function bucketSort(arr){
     }
     
     for(let i=0;i<arr.length;i++){
-       let key= Math.floor(arr[i]/10)-1
+       let key= Math.floor((arr[i]-min)/10)
        b[key].push(arr[i])
     }
     //console.log(b)
