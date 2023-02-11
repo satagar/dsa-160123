@@ -27,5 +27,11 @@ class singlyLinkedList {
 
 let myLinkedList = new singlyLinkedList();
 myLinkedList.insertAtBeginning(10);
+console.log(myLinkedList.size);
+console.log(myLinkedList.head);
 myLinkedList.insertAtBeginning(20);
+console.log(myLinkedList.size);
+console.log(myLinkedList.head);
+myLinkedList.insertAtBeginning(30);
+console.log(myLinkedList.size);
 console.log(myLinkedList.head);
