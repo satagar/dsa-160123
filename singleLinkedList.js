@@ -23,15 +23,26 @@ class singlyLinkedList {
     newNode.next = this.head;
     this.head = newNode;
   }
+
+  // insertAtEnd(data){
+  //   let newNode = new Node(data);
+  //   this.size++;
+
+  // }
+
+  printList() {
+    var cur = this.head;
+    while (cur != null) {
+      console.log(cur.data);
+      cur = cur.next;
+    }
+  }
 }
 
 let myLinkedList = new singlyLinkedList();
 myLinkedList.insertAtBeginning(10);
-console.log(myLinkedList.size);
-console.log(myLinkedList.head);
 myLinkedList.insertAtBeginning(20);
-console.log(myLinkedList.size);
-console.log(myLinkedList.head);
-myLinkedList.insertAtBeginning(30);
-console.log(myLinkedList.size);
-console.log(myLinkedList.head);
+myLinkedList.insertAtBeginning(45);
+myLinkedList.insertAtBeginning(56);
+
+myLinkedList.printList();
