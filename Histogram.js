@@ -29,40 +29,46 @@ class Stack {
     }
 }
 
-function sumofSubarrayMinimum(arr) {
-    let len = arr.length;
-    let LHS = new Array(len).fill(1);
-    let RHS = new Array(len).fill(1);
-    const stack1 = new Stack();
-    const stack2 = new Stack();
-    stack1.push(0);
-    for (let i = 1; i < len; i++) {
-        let temp = 1;
-        while (stack1.peek() != null && arr[stack1.peek()] > arr[i]) {
-            temp = i - stack1.peek() + 1;
-            stack1.pop();
+var histogram = function(arr) {
+    let M = Math.pow(10, 9) + 7;
+    let PLE = new Array(arr.length).fill(-1);
+    let NLE = new Array(arr.length).fill(arr.length);
+    findPLE(PLE, arr);
+    findNLE(NLE, arr);
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum = Math.max(((NLE[i]-PLE[i]-1) * arr[i]),sum) % M 
+    }
+    return sum;
+};
+
+function findPLE(PLE, arr) {
+    let stack = new Stack();
+    for (let i = 0; i < arr.length; i++) {
+        while (stack.peek() != null && arr[stack.peek()] >= arr[i]) {
+            stack.pop();
         }
-        if(stack1.peek() == null) temp = i+1;
-        LHS[i] = temp;
-        stack1.push(i);
-    }
-    stack2.push(len - 1);
-    for (let i = len - 2; i >= 0; i--) {
-        let temp = 1;
-        while (stack2.peek() != null && arr[stack2.peek()] > arr[i]) {
-            temp = (stack2.peek() - i) + 1;
-            stack2.pop();
+        if (stack.peek() != null) {
+            PLE[i] = stack.peek();
         }
-        if(stack2.peek() == null) temp = len - i;
-        RHS[i] = temp;
-        stack2.push(i);
+        stack.push(i);
     }
-    let max = -1;
-    for (let i = 0; i < len; i++) {
-        max = Math.max((Math.max(LHS[i],RHS[i]) + 1) * arr[i],max);
+}
+
+function findNLE(NLE, arr) {
+    let stack = new Stack();
+    for (let i = arr.length-1; i >= 0; i--) {
+        while (stack.peek() != null && arr[stack.peek()] > arr[i]) {
+            stack.pop();
+        }
+        if (stack.peek() !=null) {
+            NLE[i] = stack.peek();
+        }
+        stack.push(i);
     }
-    return max;
 }
 
 
-console.log(sumofSubarrayMinimum([6,2,5,4,5,1,6]));
+
+console.log(histogram([6,2,5,4,5,1,6]));
+console.log(histogram([2,1,5,6,2,3]));
