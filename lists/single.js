@@ -1,103 +1,114 @@
 class Node {
-	constructor(data){
-  	this.data = data;
+  constructor(data) {
+    this.data = data;
     this.next = null;
   }
 }
 
 class SinglyLinkedList {
-	constructor(){
-  	this.head = null;
+  constructor() {
+    this.head = null;
     this.size = 0;
   }
-}
 
-function insertAtB(head, data){
-	let temp = new Node(data);
-  let cur = head;
-  
-  if(cur == null){
-  	return temp;
-  }
-  else {
-  	temp.next = cur;
-    return temp;
-  }
-}
-
-function printLL(head){
-	let cur = head;
-  while(cur != null){
-  	console.log(cur.data);
-    cur = cur.next;
-  }
-}
-
-function insertAtE(head, data){
-	let temp = new Node(data);
-  
-  let cur = head;
-  
-  if(cur == null){
-  	return temp;
-  }
-  else {
-  	while(cur.next != null){
-    	cur = cur.next;
+  insertAtBeginning(data) {
+    let newNode = new Node(data);
+    this.size++;
+    if (this.head == null) {
+      this.head = newNode;
+      return;
     }
-    cur.next = temp;
+
+    newNode.next = this.head;
+    this.head = newNode;
   }
-  return head;
+
+  printList() {
+    let current = this.head;
+    while (current != null) {
+      console.log(current.data);
+      current = current.next;
+    }
+  }
+
+  insertAtEnd(data) {
+    let cur = this.head;
+    let newNode = new Node(data);
+    this.size++;
+    if (this.head == null) {
+      this.head = newNode;
+      return;
+    }
+
+    while (cur.next != null) {
+      cur = cur.next;
+    }
+
+    cur.next = newNode;
+  }
+
+  reverse() {
+    let prev = null;
+    let cur = this.head;
+    let next = null;
+
+    while (cur != null) {
+      next = cur.next;
+      cur.next = prev;
+      prev = cur;
+      cur = next;
+    }
+    this.head = prev;
+  }
+
+  shuffle() {
+    let slow = this.head;
+    let fast = this.head;
+
+    while (fast != null && fast.next != null) {
+      slow = slow.next;
+      fast = fast.next.next;
+    }
+
+    let second = slow.next;
+    let first = this.head;
+    slow.next = null;
+
+    second = reverse(second);
+    
+    while(second != null){
+    	let a = first.next;
+      let b = second.next;
+      
+      first.next = second;
+      second.next = a;
+      
+      first = a;
+      second = b;
+    }
+  }
 }
 
-function insertAtI(head, data, i){
-	let temp = new Node(data);
-  
+function reverse(head) {
+  let prev = null;
   let cur = head;
-  
-  if(i == 0) return insertAtB(head,data);
-  
-  while (i - 1 > 0 && cur != null){
-  	cur = cur.next;
-    i--;
+  let next = null;
+
+  while (cur != null) {
+    next = cur.next;
+    cur.next = prev;
+    prev = cur;
+    cur = next;
   }
-  
-  temp.next = cur.next;
-  cur.next = temp;
-  return head;
+  return prev;
 }
 
-function getDataAtI(head,i){
-	let cur = head;
-  
-  while( i > 0 && cur != null){
-  	cur = cur.next;
-    i--;
-  }
-  
-  return cur.data;
-}
-
-function deleteElementAtS(head){
-	let cur = head;
-  if(cur == null) return null;
-  return head.next;
-}
-
-function deleteElementAtI(head,i){
-	
-}
-
-let head = insertAtB(null,10)
-
-head = insertAtE(head,20);
-
-head = insertAtI(head,30,2);
-
-printLL(head);
-
-/* console.log(getDataAtI(head,0)); */
-
-head = deleteElementAtS(head);
-
-printLL(head);
+var x = new SinglyLinkedList();
+x.insertAtBeginning(5);
+x.insertAtBeginning(4);
+x.insertAtBeginning(3);
+x.insertAtBeginning(2);
+x.insertAtBeginning(1);
+x.printList();
+x.shuffle();
+x.printList();
