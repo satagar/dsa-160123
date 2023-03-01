@@ -12,7 +12,7 @@ class Queue{
     dequeue(){
         if(!this.isEmpty()){
             let element = this.data[this.front];
-            this.data[this.front];
+            this.data[this.front] = 0;
             this.front++;
             return element;
         }
@@ -29,5 +29,7 @@ let q = new Queue();
 q.enqueue(7);
 q.enqueue(1);
 q.enqueue(2);
+console.log(q.dequeue());
+console.log(q.dequeue());
 console.log(q.dequeue());
 console.log(q.dequeue());
