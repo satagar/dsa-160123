@@ -11,5 +11,5 @@ if(found){
     console.log(`Element is found ${E}`)
 }
 else{
-    console.log(`Element ins not found `)
+    console.log(`Element is not found `)
 }
