@@ -75,14 +75,14 @@ class SinglyLinkedList {
     slow.next = null;
 
     second = reverse(second);
-    
-    while(second != null){
-    	let a = first.next;
+
+    while (second != null) {
+      let a = first.next;
       let b = second.next;
-      
+
       first.next = second;
       second.next = a;
-      
+
       first = a;
       second = b;
     }
