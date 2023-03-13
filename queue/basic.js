@@ -20,7 +20,7 @@ class Queue {
     }
     
     isEmpty(){
-      return this.data.length === 0;
+      return this.front === this.rear;
     }
   }
   
