@@ -15,7 +15,7 @@ function CreateBinaryTree(arr,i){
     node.right = CreateBinaryTree(arr,(2*i) + 2);
     return node;
 }
-function findHeight(root,k){
+function findHeight(root){
     if(root == null){
         return -1;
     }
