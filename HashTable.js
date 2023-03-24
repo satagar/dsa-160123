@@ -1,7 +1,9 @@
 class HashTable {
     constructor() {
-        this.data = new Array(127);
+        this.limit = 127;
+        this.data = new Array(this.limit);
         this.size = 0;
+        this.MAX_LOAD_FACTOR = 0.80;
     }
     hash(key) {
         let hashvalue = 0;
@@ -24,9 +26,29 @@ class HashTable {
         } else {
             this.data[index] = [];
             this.data[index].push([key, value]);
+           
         }
         this.size++;
-
+        let loadFactor = this.size / this.limit;
+        if(loadFactor > this.MAX_LOAD_FACTOR){
+            this.rehash();
+            console(`New Table size : ${this.limit}`);
+        }
+       
+    }
+    rehash(){
+        let temp = this.data;
+        this.size = 0;
+        this.limit *= 2;
+        this.data = new Array(this.limit);
+        for(let i=0;i<temp.length;i++){
+            if(!temp[i]){
+                continue;
+            }
+            for(let j=0;j<temp[i].length;j++){
+                this.set(temp[i][j][0],temp[i][j][1]);
+            }
+        }
     }
     get(key) {
         let index = this.hash(key);
@@ -68,8 +90,7 @@ class HashTable {
 
 const h = new HashTable();
 h.set('spain', [1, 2, 3]);
+h.set('spain', [1, 5, 56]);
 h.set('pains', 'interchange');
 console.log(h.get('spain'));
 console.log(h.get('pains'));
-console.log(h.remove('pains'));
-console.log(h.display());
