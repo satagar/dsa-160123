@@ -16,7 +16,7 @@ function CreateBinaryTree(arr,i){
   return node;
 }
 
-function topView(root,curr){
+function topView(root){
   let map = new Map();
   let q = [];
   q.push([root,0]);
@@ -40,9 +40,9 @@ function topView(root,curr){
 
 let Btree1 = CreateBinaryTree([1,2,3,null,4,null,null,null,null,null,5,null,null,null,null,null,null,null,null,null,null,null,6],0);
 let Btree2 = CreateBinaryTree([1,2,3,4,5,6,7,8,9,10,11],0);
-topView(Btree1,0);
+topView(Btree1);
 console.log(`--------------------------------`)
-topView(Btree2,0);
+topView(Btree2);
 
 
 
